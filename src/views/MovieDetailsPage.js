@@ -1,26 +1,27 @@
 import { useState, useEffect, lazy } from 'react';
 import {
+  BrowserRouter as Router,
   useParams,
   NavLink,
   Route,
   Switch,
   useRouteMatch,
-  useHistory,
+  useNavigate,
   useLocation,
 } from 'react-router-dom';
 import { BsChevronDoubleLeft } from 'react-icons/bs';
 
-import styles from './styles/FilmPage.module.css';
-import { fetchFullInfoMovies } from '../services/movies';
+import styles from './styles/MoviesPage.module.css';
+import { fetchFullInfoMovies } from '../services/api-movies';
 import MovieCard from '../components/MovieCard';
 
 const Cast = lazy(() => import('./Cast'));
 const Reviews = lazy(() => import('./Reviews'));
 
-const FilmDetailsCard = () => {
+const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const { url, path } = useRouteMatch();
-  const history = useHistory();
+  const history = useNavigate();
   const location = useLocation();
 
   const [movie, setMovie] = useState(null);
@@ -78,4 +79,4 @@ const FilmDetailsCard = () => {
   );
 };
 
-export default FilmDetailsCard;
+export default MovieDetailsPage;

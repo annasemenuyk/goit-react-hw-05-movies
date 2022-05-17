@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import styles from "./MovieCard.module.css";
-import imgNotFound from "../../images/notfound.jpeg";
+import PropTypes from 'prop-types';
+import styles from './MovieCard.module.css';
+import imgNotFound from '../../images/notfound.jpeg';
 
 const MovieCard = ({ movie }) => {
   const { poster_path, title, vote_average, overview, genres, release_date } =
@@ -27,7 +27,7 @@ const MovieCard = ({ movie }) => {
         <p className={styles.text}>{overview}</p>
         <h3 className={styles.titleDesc}>Genres</h3>
         <ul className={styles.list}>
-          {genres.map((genre) => (
+          {genres.map(genre => (
             <li className={styles.item} key={genre.id}>
               {genre.name}
             </li>

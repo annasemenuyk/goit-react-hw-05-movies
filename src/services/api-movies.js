@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '438b186954a1d443dab5b74e8c351dfa';

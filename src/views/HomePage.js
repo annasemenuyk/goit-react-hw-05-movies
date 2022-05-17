@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import styles from './styles/Page.module.css';
-import { fetchTrendingMovies } from '../services/api-movies';
+import styles from "./styles/Page.module.css";
+import { fetchTrendingMovies } from "../services/api-movies";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetchTrendingMovies().then(movie => setMovies(movie.results));
+    fetchTrendingMovies().then((movie) => setMovies(movie.results));
   }, []);
 
   return (

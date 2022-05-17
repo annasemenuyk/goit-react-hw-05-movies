@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Link, useRouteMatch, useHistory, useLocation } from 'react-router-dom';
+import {
+  Link,
+  useRouteMatch,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 import queryString from 'query-string';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,9 +14,9 @@ import { fetchSearchMovies } from '../services/api-movies';
 import SearchForm from '../components/SearchForm';
 import imgNotFound from '../images/notfound-movies.jpeg';
 
-const FilmsPage = () => {
+const MoviesPage = () => {
   const { url } = useRouteMatch();
-  const history = useHistory();
+  const history = useNavigate();
   const location = useLocation();
   const { query } = queryString.parse(location.search);
   const [movies, setMovies] = useState([]);
@@ -78,4 +83,4 @@ const FilmsPage = () => {
   );
 };
 
-export default FilmsPage;
+export default MoviesPage;

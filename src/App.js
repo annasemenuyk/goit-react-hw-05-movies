@@ -1,3 +1,4 @@
+import React from 'react';
 import { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -6,13 +7,13 @@ import Header from './components/Header';
 import LoaderSpinner from './components/Loader';
 
 const HomePage = lazy(() =>
-  import('../pages/HomePage' /* webpackChunkName: "home-page" */)
+  import('./views/HomePage' /* webpackChunkName: "home-page" */)
 );
-const FilmPage = lazy(() =>
-  import('../pages/FilmPage' /* webpackChunkName: "movies-page" */)
+const MoviesPage = lazy(() =>
+  import('./views/MoviesPage' /* webpackChunkName: "movies-page" */)
 );
-const FilmDetailsCard = lazy(() =>
-  import('../pages/FilmDetailsCard' /* webpackChunkName: "movie-details" */)
+const MovieDetailsPage = lazy(() =>
+  import('./views/MovieDetailsPage' /* webpackChunkName: "movie-details" */)
 );
 
 const App = () => {
@@ -27,11 +28,11 @@ const App = () => {
           </Route>
 
           <Route path="/movies" exact>
-            <FilmPage />
+            <MoviesPage />
           </Route>
 
           <Route path="/movies/:movieId">
-            <FilmDetailsCard />
+            <MovieDetailsPage />
           </Route>
 
           <Redirect to="/" />

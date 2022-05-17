@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import styles from './Cast.module.css';
-import { fetchInfoAboutCast } from '../services/movies';
-import imgNotFound from '../images/notfound.jpeg';
+import styles from "./styles/Cast.module.css";
+import { fetchInfoAboutCast } from "../services/api-movies";
+import imgNotFound from "../images/notfound.jpeg";
 
 const MoviesCast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
 
   useEffect(() => {
-    fetchInfoAboutCast(movieId).then(movie => setCast(movie.cast));
+    fetchInfoAboutCast(movieId).then((movie) => setCast(movie.cast));
   }, [movieId]);
 
   return (

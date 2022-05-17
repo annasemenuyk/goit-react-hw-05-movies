@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import styles from './styles/Review.module.css';
-import { fetchReviews } from '../services/api-movies';
+import styles from "./styles/Review.module.css";
+import { fetchReviews } from "../services/api-movies";
 
-const FilmsReviews = () => {
+const MoviesReviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState(null);
 
   useEffect(() => {
-    fetchReviews(movieId).then(movie => setReviews(movie.results));
+    fetchReviews(movieId).then((movie) => setReviews(movie.results));
   }, [movieId]);
 
   return (
@@ -28,10 +28,10 @@ const FilmsReviews = () => {
   );
 };
 
-FilmsReviews.propTypes = {
+MoviesReviews.propTypes = {
   id: PropTypes.number,
   author: PropTypes.string,
   content: PropTypes.string,
 };
 
-export default FilmsReviews;
+export default MoviesReviews;
