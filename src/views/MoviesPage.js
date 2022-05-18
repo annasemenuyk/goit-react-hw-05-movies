@@ -1,35 +1,30 @@
-import { useState, useEffect } from 'react';
-import {
-  Link,
-  useRouteMatch,
-  useNavigate,
-  useLocation,
-} from 'react-router-dom';
-import queryString from 'query-string';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useState, useEffect } from "react";
+import { Link, useRouteMatch, useHistory, useLocation } from "react-router-dom";
+import queryString from "query-string";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import styles from './styles/Page.module.css';
-import { fetchSearchMovies } from '../services/api-movies';
-import SearchForm from '../components/SearchForm';
-import imgNotFound from '../images/notfound-movies.jpeg';
+import styles from "./styles/Page.module.css";
+import { fetchSearchMovies } from "../services/movies";
+import SearchForm from "../components/SearchForm";
+import imgNotFound from "../images/notfound-movies.jpeg";
 
 const MoviesPage = () => {
   const { url } = useRouteMatch();
-  const history = useNavigate();
+  const history = useHistory();
   const location = useLocation();
   const { query } = queryString.parse(location.search);
   const [movies, setMovies] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(query || '');
+  const [searchQuery, setSearchQuery] = useState(query || "");
 
   useEffect(() => {
-    if (searchQuery === '') {
+    if (searchQuery === "") {
       return;
     }
 
-    fetchSearchMovies(searchQuery).then(movie => {
+    fetchSearchMovies(searchQuery).then((movie) => {
       if (movie.results.length === 0) {
-        toast.error('Nothing not found!');
+        toast.error("Nothing not found!");
         setMovies([]);
       }
 
@@ -37,7 +32,7 @@ const MoviesPage = () => {
     });
   }, [searchQuery]);
 
-  const handleFormSubmit = searchQuery => {
+  const handleFormSubmit = (searchQuery) => {
     setMovies([]);
     setSearchQuery(searchQuery);
 
@@ -57,7 +52,7 @@ const MoviesPage = () => {
                 state: {
                   from: {
                     location,
-                    label: 'Go back',
+                    label: "Go back",
                   },
                 },
               }}

@@ -1,27 +1,26 @@
-import { useState, useEffect, lazy } from 'react';
+import { useState, useEffect, lazy } from "react";
 import {
-  BrowserRouter as Router,
   useParams,
   NavLink,
   Route,
   Switch,
   useRouteMatch,
-  useNavigate,
+  useHistory,
   useLocation,
-} from 'react-router-dom';
-import { BsChevronDoubleLeft } from 'react-icons/bs';
+} from "react-router-dom";
+import { BsChevronDoubleLeft } from "react-icons/bs";
 
-import styles from './styles/MoviesPage.module.css';
-import { fetchFullInfoMovies } from '../services/api-movies';
-import MovieCard from '../components/MovieCard';
+import styles from "./styles/MoviesPage.module.css";
+import { fetchFullInfoMovies } from "../services/movies";
+import MovieCard from "../components/MovieCard";
 
-const Cast = lazy(() => import('./Cast'));
-const Reviews = lazy(() => import('./Reviews'));
+const Cast = lazy(() => import("./Cast"));
+const Reviews = lazy(() => import("./Reviews"));
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const { url, path } = useRouteMatch();
-  const history = useNavigate();
+  const history = useHistory();
   const location = useLocation();
 
   const [movie, setMovie] = useState(null);
@@ -31,7 +30,7 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   const onClickGoBack = () => {
-    history.push(location?.state?.from?.location || '/');
+    history.push(location?.state?.from?.location || "/");
   };
 
   return (

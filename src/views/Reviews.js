@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import styles from "./styles/Review.module.css";
-import { fetchReviews } from "../services/api-movies";
+import { fetchReviews } from "../services/movies";
 
 const MoviesReviews = () => {
   const { movieId } = useParams();

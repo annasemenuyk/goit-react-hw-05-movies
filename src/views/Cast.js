@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import styles from "./styles/Cast.module.css";
-import { fetchInfoAboutCast } from "../services/api-movies";
+import { fetchInfoAboutCast } from "../services/movies";
 import imgNotFound from "../images/notfound.jpeg";
 
 const MoviesCast = () => {

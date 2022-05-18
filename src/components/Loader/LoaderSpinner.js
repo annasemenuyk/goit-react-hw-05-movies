@@ -1,13 +1,15 @@
-import { ThreeDots } from 'react-loader-spinner';
-import styles from './LoaderSpinner.module.css';
+import Loader from "react-loader-spinner";
+import styles from "./LoaderSpinner.module.css";
 
 const LoaderSpinner = () => {
   return (
-    <ThreeDots
+    <Loader
       className={styles.Loader}
-      color="#00BFFF"
+      type="ThreeDots"
+      color="#000000"
       height={80}
       width={80}
+      timeout={3000}
     />
   );
 };
