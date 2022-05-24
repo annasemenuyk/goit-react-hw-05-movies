@@ -1,7 +1,0 @@
-[build]
-  publish = "build"
-
-[[redirescts]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
