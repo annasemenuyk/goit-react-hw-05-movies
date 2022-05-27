@@ -1,7 +1,10 @@
-import Navigation from './Navigation/Navigation';
+import { Header } from './Header';
+import { Container } from './Container';
 
 const App = () => {
-  return <Navigation></Navigation>;
+  <Container>
+    <Header />
+  </Container>;
 };
 
 export default App;
