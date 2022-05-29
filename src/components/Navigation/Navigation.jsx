@@ -1,8 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
-export const Navigation = () => {
-  return;
+export const Navigation = () => (
   <nav>
     <NavLink
       exact
@@ -19,5 +18,5 @@ export const Navigation = () => {
     >
       Movies
     </NavLink>
-  </nav>;
-};
+  </nav>
+);

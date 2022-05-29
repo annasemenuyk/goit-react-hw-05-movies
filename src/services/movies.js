@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types';
+
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '438b186954a1d443dab5b74e8c351dfa';
 
 const fetchMovies = async url => {
   try {
-    const response = await fetch(url).then(response =>
-      console.log(response.json())
-    );
+    const response = await fetch(url).then(response => response.json());
+
     return response;
   } catch (error) {
     return Promise.reject(new Error('Not found!'));
@@ -49,4 +50,3 @@ fetchSearchMovies.propTypes = {
   page: PropTypes.number.isRequired,
   id: PropTypes.number,
 };
-console.log(id);
